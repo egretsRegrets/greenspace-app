@@ -20,14 +20,8 @@ mongoose.connection.on('error', (err) => {
     console.error(err.message);
 });
 
-// not sure about this:
-/*
-db = database;
-console.log(`Database connection ready; database is: ${db}`);
-*/
-
 // we'll need to import all of our models here
-
+require('./server/src/app/schemas/Greenspace');
 //
 // starting our server
 const app = require('./server/src/server');
