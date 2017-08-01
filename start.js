@@ -30,7 +30,7 @@ console.log(`Database connection ready; database is: ${db}`);
 
 //
 // starting our server
-const app = require('./server');
+const app = require('./server/src/server');
 app.set('port', process.env.PORT || 7777);
 const server = app.listen(app.get('port'), () => {
     console.log(`Express running at PORT  ${server.address().port}`);
