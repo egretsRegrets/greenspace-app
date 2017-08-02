@@ -8,6 +8,7 @@ var ObjectID = mongodb.ObjectID;
 // mongoose stuff
 const mongoose = require('mongoose');
 const promisify = require('es6-promisify');
+const routes = require('./app/routes/index');
 
 
 const app = express();
@@ -21,5 +22,7 @@ app.use((req, res, next) => {
   req.login = promisify(req.login, req);
   next();
 });
+
+app.use('/', routes);
 
 module.exports = app;

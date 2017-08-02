@@ -9,6 +9,7 @@ const slug = require('slugs');
     profit share (Y/N)
 */
 
+/*
 const greenspaceSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -44,13 +45,23 @@ const greenspaceSchema = new mongoose.Schema({
     toJSON: {virtuals: true},
     toObject: {virtuals: true}
 });
+*/
+
+// test schema
+const greenspaceSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: 'Please input name'
+    }
+});
 
 // create our indexes:
-
+/*
 greenspaceSchema.index({
     name: 'text',
     description: 'text'
 });
-greenspaceSchema.index({location: '2dsphere'});
+*/
+// greenspaceSchema.index({location: '2dsphere'});
 
 module.exports = mongoose.model('Greenspace', greenspaceSchema);
