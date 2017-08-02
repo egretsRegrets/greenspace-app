@@ -4,13 +4,21 @@ const uuid = require('uuid'); // package to help us assign unique id's to upload
 const multer = require('multer'); // package that will allow us to use multipart form-data, needed for image upload
 const Greenspace = mongoose.model('Greenspace');
 
-/* //get webpack and async sorted
+
 exports.testPost = async (req, res) => {
     const greenspace = await (new Greenspace(req.body)).save();
+    console.log(`saved?: ${greenspace}`);
 };
-*/
 
+exports.testGet = async (req, res) => {
+    const stores = await Greenspace.find();
+    console.log(stores);
+};
+
+
+/*
 exports.testPost = (req, res) => {
     const greenspace = new Greenspace(req.body).save();
     console.log(`saved?: ${greenspace}`);
 };
+*/
