@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { GreenspacesComponent } from './greenspaces/greenspaces.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GreenspacesComponent
   ],
   imports: [
     BrowserModule,
