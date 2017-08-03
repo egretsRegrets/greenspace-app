@@ -8,17 +8,11 @@ const Greenspace = mongoose.model('Greenspace');
 exports.testPost = async (req, res) => {
     const greenspace = await (new Greenspace(req.body)).save();
     console.log(`saved?: ${greenspace}`);
+    res.status(201).json(greenspace);
 };
 
 exports.testGet = async (req, res) => {
     const stores = await Greenspace.find();
     console.log(stores);
+    res.status(200).json(stores);
 };
-
-
-/*
-exports.testPost = (req, res) => {
-    const greenspace = new Greenspace(req.body).save();
-    console.log(`saved?: ${greenspace}`);
-};
-*/
