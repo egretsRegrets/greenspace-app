@@ -9,6 +9,7 @@ var ObjectID = mongodb.ObjectID;
 const mongoose = require('mongoose');
 const promisify = require('es6-promisify');
 const routes = require('./app/routes/index');
+const cors = require('cors');
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors());
 app.use('/', routes);
 
 module.exports = app;

@@ -8,16 +8,10 @@ const Greenspace = mongoose.model('Greenspace');
 exports.testPost = async (req, res) => {
     const greenspace = await (new Greenspace(req.body)).save();
     console.log(`saved?: ${greenspace}`);
-    // allows us to use cross origin for two ports localhost
-        // remove before hosting
-    res.header("Aceess-Control-Allow-Origin", "X-Requested-With");
     res.status(201).json(greenspace);
 };
 
 exports.testGet = async (req, res) => {
     const stores = await Greenspace.find();
-    // allows us to use cross origin for two ports localhost
-        // remove before hosting
-    res.header("Aceess-Control-Allow-Origin", "X-Requested-With");
     res.status(200).json(stores);
 };
