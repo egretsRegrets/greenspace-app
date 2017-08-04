@@ -1,9 +1,13 @@
-<nav>
-  <ul>
-    <li>Home</li>
-    <li>Green Spaces</li>
-    <li>Log In</li>
-    <li>Create Green Space</li>
-  </ul>
-  <app-greenspaces></app-greenspaces>
-</nav>
+<header class="header header--global-header">
+  <nav class="nav nav--horizontal">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/greenspaces">Greenspaces</a></li>
+      <li>Log In</li>
+      <li>Create Green Space</li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

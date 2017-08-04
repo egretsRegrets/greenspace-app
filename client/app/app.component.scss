@@ -1,0 +1,28 @@
+.header{
+    &.header--global-header{
+        position: relative;
+        .nav--horizontal{
+            text-align: right;
+            ul{
+                li{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.nav{
+    &.nav--horizontal{
+        ul{
+            li{
+                display: inline-block;
+            }
+        }
+    }
+    ul{
+        li{
+            list-style: none;
+        }
+    }
+}
