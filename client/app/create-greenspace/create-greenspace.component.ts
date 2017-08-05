@@ -9,7 +9,11 @@ import { Greenspace, GreenspacesService } from '../shared';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateGreenspaceComponent {
-  greenspaces$: Observable<Greenspace[]>; 
+  greenspaces$: Observable<Greenspace[]>;
+  form: Greenspace = {
+    _id: undefined,
+    name: ""
+  }; 
   constructor(
     private greenspacesService: GreenspacesService
   ) { }

@@ -1,6 +1,9 @@
 
 <form novalidate>
+  <pre>{{form | json}}</pre>
   <div class="textfield">
     <label>document name</label>
+    <input type="text" name="name" [(ngModel)]="form.name">
   </div>
 </form>
+<button type="submit" (click)="saveGreenspace(form)">Submit</button>
