@@ -11,13 +11,15 @@ import { GreenspacesListComponent } from './greenspaces/greenspaces-list/greensp
 
 import { greenspaces, GreenspacesService } from './shared';
 import { HomeComponent } from './home/home.component';
+import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreenspacesComponent,
     GreenspacesListComponent,
-    HomeComponent
+    HomeComponent,
+    CreateGreenspaceComponent
   ],
   imports: [
     BrowserModule,
