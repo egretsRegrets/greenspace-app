@@ -22,6 +22,7 @@ mongoose.connection.on('error', (err) => {
 
 // we'll need to import all of our models here
 require('./server/src/app/schemas/Greenspace');
+require('./server/src/app/schemas/User');
 //
 // starting our server
 const app = require('./server/src/server');

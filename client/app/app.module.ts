@@ -12,6 +12,7 @@ import { GreenspacesListComponent } from './greenspaces/greenspaces-list/greensp
 import { greenspaces, GreenspacesService } from './shared';
 import { HomeComponent } from './home/home.component';
 import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace
     GreenspacesComponent,
     GreenspacesListComponent,
     HomeComponent,
-    CreateGreenspaceComponent
+    CreateGreenspaceComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
