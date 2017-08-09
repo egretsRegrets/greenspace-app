@@ -4,7 +4,8 @@ import { Action, ActionReducer } from '@ngrx/store';
 export const GET_GREENSPACES = 'GET_GREENSPACES';
 export const CREATE_GREENSPACE = 'CREATE_GREENSPACE';
 
-export const greenspaces: ActionReducer<Greenspace[]> = (state: Greenspace[] = [], action: Action) => {
+
+export function reducer(state: Greenspace[] = [], action: Action) {
     switch(action.type){
         case GET_GREENSPACES:
             return action.payload;
@@ -14,3 +15,4 @@ export const greenspaces: ActionReducer<Greenspace[]> = (state: Greenspace[] = [
             return state;
     }
 };
+
