@@ -1,4 +1,4 @@
-import {Greenspace} from './greenspace.model';
+import { Greenspace } from '../models';
 import { Action, ActionReducer } from '@ngrx/store';
 
 export const GET_GREENSPACES = 'GET_GREENSPACES';

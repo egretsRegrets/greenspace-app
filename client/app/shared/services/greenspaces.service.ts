@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Store } from '@ngrx/store';
 
-import { AppStore } from '../app-store';
-import { Greenspace } from './greenspace.model';
+import { AppStore } from '../../app-store';
+import { Greenspace } from '../models';
 import { 
     GET_GREENSPACES,
     CREATE_GREENSPACE
- } from './greenspaces.reducer';
+ } from '../reducers';
 
 const BASE_URL = 'http://localhost:7777/api/greenspaces'
 const HEADER = { headers: new Headers({'Content-Type': 'application/json' }) };
