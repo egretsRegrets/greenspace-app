@@ -12,7 +12,7 @@ import { GreenspaceAppRoutingModule } from './app-routing.module'
 import { GreenspacesComponent } from './greenspaces/greenspaces.component';
 import { GreenspacesListComponent } from './greenspaces/greenspaces-list/greenspaces-list.component';
 
-import { greenspaces, GreenspacesService, users, UsersService } from './shared';
+import { GreenspacesService, UsersService, reducer } from './shared';
 
 import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
@@ -31,7 +31,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     FormsModule,
     HttpModule,
     GreenspaceAppRoutingModule,
-    StoreModule.provideStore({ greenspaces, users })
+    StoreModule.provideStore(reducer)
   ],
   providers: [ GreenspacesService, UsersService ],
   bootstrap: [AppComponent]
