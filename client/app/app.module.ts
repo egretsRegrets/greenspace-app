@@ -5,12 +5,15 @@ import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
+
+import { HomeComponent } from './home/home.component';
+
 import { GreenspaceAppRoutingModule } from './app-routing.module'
 import { GreenspacesComponent } from './greenspaces/greenspaces.component';
 import { GreenspacesListComponent } from './greenspaces/greenspaces-list/greenspaces-list.component';
 
-import { greenspaces, GreenspacesService } from './shared';
-import { HomeComponent } from './home/home.component';
+import { greenspaces, GreenspacesService, users, UsersService } from './shared';
+
 import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 
@@ -28,9 +31,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     FormsModule,
     HttpModule,
     GreenspaceAppRoutingModule,
-    StoreModule.provideStore({ greenspaces })
+    StoreModule.provideStore({ greenspaces, users })
   ],
-  providers: [ GreenspacesService ],
+  providers: [ GreenspacesService, UsersService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

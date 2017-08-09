@@ -1,3 +1,8 @@
-<p>
-  create-account works!
-</p>
+<form novalidate>
+  <pre>{{form | json}}</pre>
+  <div class="textfield">
+    <label for="name">user name</label>
+    <input type="text" name="name" [(ngModel)]="form.name">
+  </div>
+</form>
+<button type="submit" (click)="saveUser(form)">Submit User</button>
