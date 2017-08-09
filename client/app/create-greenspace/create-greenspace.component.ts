@@ -9,11 +9,13 @@ import { Greenspace, GreenspacesService } from '../shared';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateGreenspaceComponent {
+  
   greenspaces$: Observable<Greenspace[]>;
   form: Greenspace = {
     _id: undefined,
     name: ""
   }; 
+
   constructor(
     private greenspacesService: GreenspacesService
   ) { }
@@ -22,11 +24,11 @@ export class CreateGreenspaceComponent {
     // we need to load the greenspaces so that we can compare
       // new greenspace details against existing greenspaces
     this.greenspaces$ = this.greenspacesService.greenspaces$;
-    this.greenspacesService.loadGreenspaces();
   }
 
   saveGreenspace(greenspace: Greenspace) {
     this.greenspacesService.createGreenspaces(greenspace);
+    
   }
 
 }

@@ -5,7 +5,7 @@ const multer = require('multer'); // package that will allow us to use multipart
 const Greenspace = mongoose.model('Greenspace');
 
 
-exports.testPost = async (req, res) => {
+exports.createGreenspace = async (req, res) => {
     const greenspace = await (new Greenspace(req.body)).save();
     console.log(`saved?: ${greenspace}`);
     res.status(201).json(greenspace);
