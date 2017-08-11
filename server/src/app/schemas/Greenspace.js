@@ -52,16 +52,31 @@ const greenspaceSchema = new mongoose.Schema({
     name: {
         type: String,
         required: 'Please input name'
-    }
+    },
+    slug: String
 });
 
 // create our indexes:
-/*
+
 greenspaceSchema.index({
-    name: 'text',
-    description: 'text'
+    name: 'text'//,
+    //description: 'text'
 });
-*/
+
 // greenspaceSchema.index({location: '2dsphere'});
+
+greenspaceSchema.pre('save', async function(next){
+    if(!this.isModified('name')){
+        // if name is not modified, then skip this pre
+        return next();
+    }
+    this.slug = slug(this.name);
+    const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+    const storesWithSlug = await this.constructor.find({slug: slugRegEx});
+    if(storesWithSlug.length) {
+        this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
+    }
+    next();
+});
 
 module.exports = mongoose.model('Greenspace', greenspaceSchema);
