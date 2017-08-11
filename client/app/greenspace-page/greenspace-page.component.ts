@@ -2,28 +2,40 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
+import { Greenspace, GreenspacesService } from '../shared';
+
 @Component({
   selector: 'app-greenspace-page',
   templateUrl: './greenspace-page.component.html',
   styleUrls: ['./greenspace-page.component.css']
 })
-export class GreenspacePageComponent implements OnInit, OnDestroy {
+export class GreenspacePageComponent implements OnInit {
 
-  slug: string;
-  sub: any;
+  greenspaces$: Observable<Greenspace[]>
+  greenspace: Greenspace = <Greenspace>{}
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private greenspacesService: GreenspacesService
   ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.slug = params['slug'];
-    });
+    let tempSlug = null;
+    this.greenspaces$ = this.greenspacesService.greenspaces$;
+
+    this.route.params.subscribe(params => {
+      tempSlug = params.slug;
+    }).unsubscribe();
+
+    this.greenspacesService.loadGreenspaces();
+
+    this.greenspaces$
+      .subscribe(res => res.forEach(greenspace => {
+        if(greenspace.slug === tempSlug){
+          this.greenspace = greenspace;
+        }
+      }));
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
 
 }

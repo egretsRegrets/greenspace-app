@@ -13,10 +13,7 @@ export class CreateGreenspaceComponent {
   
   greenspaces$: Observable<Greenspace[]>;
 
-  form: Greenspace = {
-    _id: undefined,
-    name: ""
-  }; 
+  form: Greenspace = <Greenspace>{};
 
   constructor(
     private greenspacesService: GreenspacesService
