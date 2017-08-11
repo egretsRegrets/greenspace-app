@@ -16,6 +16,7 @@ import { GreenspacesService, UsersService, reducer } from './shared';
 
 import { CreateGreenspaceComponent } from './create-greenspace/create-greenspace.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { GreenspacePageComponent } from './greenspace-page/greenspace-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     GreenspacesListComponent,
     HomeComponent,
     CreateGreenspaceComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    GreenspacePageComponent
   ],
   imports: [
     BrowserModule,

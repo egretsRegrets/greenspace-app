@@ -2,5 +2,9 @@
 <div *ngFor="let greenspace of greenspaces">
   <h1>{{greenspace.name}}</h1>
   <h2>{{greenspace._id}}</h2>
-  <h2>{{greenspace.slug}}</h2>
+  <h2>
+    <a [routerLink]="['/greenspace', greenspace.slug]">
+      {{greenspace.slug}}
+    </a>
+  </h2>
 </div>
