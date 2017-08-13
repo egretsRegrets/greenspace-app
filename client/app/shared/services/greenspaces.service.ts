@@ -36,4 +36,37 @@ export class GreenspacesService {
             .map(payload => ({ type: CREATE_GREENSPACE, payload }))
             .subscribe(action => this.store.dispatch(action));
     }
+
+    getGreenspaceBySlug(slug) {
+        /*
+        return this.http.get(BASE_URL)
+            .map(res => res.json())
+            .map(resArray => resArray.filter((greenspace) => {
+                    if(greenspace.slug === slug){
+                        return greenspace;
+                    }
+                })
+            )
+            .map(payload => {
+                return ({type: GET_GREENSPACES, payload});
+            })
+            .subscribe(action => this.store.dispatch(action));
+        */
+        /*
+        let greenspace;
+        this.loadGreenspaces();
+        this.greenspaces$
+            .map(resArray => resArray.filter(
+                gs => {
+                    if (gs.slug === slug){
+                        return gs;
+                    }
+                }
+            ))
+            .subscribe(arr => {
+                return arr[0];
+            });
+        */
+        
+    }
 }

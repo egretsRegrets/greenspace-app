@@ -8,7 +8,6 @@ import { Action, ActionReducer } from '@ngrx/store';
 export const GET_GREENSPACE = 'GET_GREENSPACES';
 export const CREATE_GREENSPACE = 'CREATE_GREENSPACE';
 
-
 export function reducer(state: Greenspace, action: Action) {
     switch(action.type){
         case GET_GREENSPACE:

@@ -2,8 +2,31 @@
 <form novalidate>
     <pre>{{form | json}}</pre>
   <div class="textfield">
-    <label>document name</label>
-    <input type="text" name="name" [(ngModel)]="form.name">
+    <div class="form__tooltip form__tooltip__error"
+      [ngClass]="{'form__tooltip--active': formErrors.name, 'form__tooltip__error--taken': formErrors.name === true, 'form__tooltip__error--too-short': formErrors.name === 'empty'}"
+    >
+      <span class="form__tooltip__msg form__tooltip__msg__error form__tooltip__msg__error--taken">
+        Sorry, there is already a Greenspace with the name '{{form.name}}'
+      </span>
+      <span class="form__tooltip__msg form__tooltip__msg__error form__tooltip__msg__error--too-short">
+        Your Greenspace name is too short.
+      </span>
+    </div>
+    <label>Greenspace name</label>
+    <input type="text" name="name"
+      [(ngModel)]="form.name"
+      (blur)="checkFieldErrors('name', form.name)">
+  </div>
+  
+  <div class="form__tooltip form__tooltip__submission"
+    [ngClass]="{'form__tooltip--active': formSubmission.attempted, 'form__tooltip__submission--success': formSubmission.success, 'form__tooltip__submission--failed': formSubmission.failed }"
+  >
+    <span class="form__tooltip__msg form__tooltip__msg__submission form__tooltip__msg__submission--success">
+        {{formSubmission.successMsg}}
+    </span>
+    <span class="form__tooltip__msg form__tooltip__msg__submission form__tooltip__msg__submission--failed">
+      {{formSubmission.failedMsg}}
+    </span>
   </div>
 </form>
 <button type="submit" (click)="saveGreenspace(form)">Submit</button>
