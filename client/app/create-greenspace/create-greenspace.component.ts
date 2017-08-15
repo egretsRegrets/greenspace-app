@@ -56,7 +56,7 @@ export class CreateGreenspaceComponent {
     function compareVals(existingVals) {
       existingVals.forEach(
         val => {
-          if (val === fieldValue){
+          if (val.toLowerCase() === fieldValue.toLowerCase()){
             return fieldValIsDuplicate = true;
           }
         }
@@ -68,12 +68,15 @@ export class CreateGreenspaceComponent {
 
 
   checkFieldErrors(fieldName, fieldValue) {
-    if (fieldValue !== undefined && fieldValue.length > 1) {
+    function atLeastFiveChars(input){
+      let regEx = /[A-Za-z]{5}/;
+      return regEx.test(input);
+    }
+    if (atLeastFiveChars(fieldValue)) {
       return this.formErrors[fieldName] = this.fieldValDuplicate(fieldName, fieldValue);
     } else{
-
+      return this.formErrors[fieldName] = 'empty';
     }
-    return this.formErrors[fieldName] = 'empty';
   }
 
   checkFormErrors() {
