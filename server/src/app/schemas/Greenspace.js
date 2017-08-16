@@ -51,19 +51,42 @@ const greenspaceSchema = new mongoose.Schema({
 const greenspaceSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: 'Please input name'
+        required: true
     },
-    slug: String
+    slug: String,
+    description: {
+        type: String,
+        trim: true
+    },
+    tags: [String],
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    location: {
+        type: {
+            type: String,
+            default: 'Point'
+        },
+        coordinates: [{
+            type: Number,
+            required: true
+        }],
+        address: {
+            type: String,
+            required: true
+        }
+    }
 });
 
 // create our indexes:
 
 greenspaceSchema.index({
-    name: 'text'//,
-    //description: 'text'
+    name: 'text',
+    description: 'text'
 });
 
-// greenspaceSchema.index({location: '2dsphere'});
+greenspaceSchema.index({location: '2dsphere'});
 
 greenspaceSchema.pre('save', async function(next){
     if(!this.isModified('name')){

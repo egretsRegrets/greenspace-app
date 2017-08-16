@@ -7,6 +7,7 @@ import { GreenspacePageComponent } from './greenspace-page/greenspace-page.compo
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', component: GreenspacesComponent},
     {path: 'greenspaces', component: GreenspacesComponent},
     {path: 'create-greenspace', component: CreateGreenspaceComponent},
     {path: 'create-account', component: CreateAccountComponent},

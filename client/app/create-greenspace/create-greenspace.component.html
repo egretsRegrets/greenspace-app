@@ -3,7 +3,7 @@
     <pre>{{form | json}}</pre>
   <div class="textfield">
     <div class="form__tooltip form__tooltip__error"
-      [ngClass]="{'form__tooltip--active': formErrors.name, 'form__tooltip__error--taken': formErrors.name === true, 'form__tooltip__error--too-short': formErrors.name === 'empty'}"
+      [ngClass]="{'form__tooltip--active': formErrors.name, 'form__tooltip__error--taken': formErrors.name === true, 'form__tooltip__error--too-short': formErrors.name === 'short'}"
     >
       <span class="form__tooltip__msg form__tooltip__msg__error form__tooltip__msg__error--taken">
         Sorry, there is already a Greenspace with the name '{{form.name}}'
@@ -12,12 +12,43 @@
         Your Greenspace name must contain at least five alphabetical characters.
       </span>
     </div>
-    <label>Greenspace name</label>
+    <label class="label--block">Greenspace name</label>
     <input type="text" name="name"
       [(ngModel)]="form.name"
       (blur)="checkFieldErrors('name', form.name)">
   </div>
-  
+
+  <div class="textfield textfield__textarea">
+    <label for="description" class="label--block">Greenspace description</label>
+    <textarea name="description" [(ngModel)]="form.description">
+    </textarea>
+  </div>
+
+  <div class="checkbox-selection">
+    <label *ngFor="let tag of greenspaceTags; index as i">
+      {{tag}}
+      <input type="checkbox" 
+        name="greenspace-tags"
+        value="{{tag}}"
+        (change)="checkBoxAction($event)">
+    </label>
+  </div>
+
+  <div class="textfield">
+    <label for="address" class="label--block">Greenspace address</label>
+    <input type="text" name="address" id="greenspaceAddress" (change)="assignAddress()">
+  </div>
+
+  <div class="textfield textfield--hidden">
+    <label for="addressLat" class="label--block">Greenspace address lat</label>
+    <input type="text" name="address" id="greenspaceAddressLat">
+  </div>
+
+  <div class="textfield textfield--hidden">
+    <label for="addressLng" class="label--block">Greenspace address lng</label>
+    <input type="text" name="address" id="greenspaceAddressLng">
+  </div>
+
   <div class="form__tooltip form__tooltip__submission"
     [ngClass]="{'form__tooltip--active': formSubmission.attempted, 'form__tooltip__submission--success': formSubmission.success, 'form__tooltip__submission--failed': formSubmission.failed }"
   >

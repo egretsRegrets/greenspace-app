@@ -1,10 +1,14 @@
 
 <div *ngFor="let greenspace of greenspaces">
   <h1>{{greenspace.name}}</h1>
-  <h2>{{greenspace._id}}</h2>
   <h2>
     <a [routerLink]="['/greenspace', greenspace.slug]">
       {{greenspace.slug}}
     </a>
   </h2>
+  <h5 *ngIf="greenspace.description">{{greenspace.description}}</h5>
+  <h4 *ngIf="greenspace.tags">Tags:</h4>
+  <ul>
+    <li *ngFor="let tag of greenspace.tags">{{tag}}</li>
+  </ul>
 </div>

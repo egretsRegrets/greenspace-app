@@ -28,7 +28,10 @@
 }
 
 form{
-    label{
+    .textfield.textfield--hidden{
+        display: none;
+    }
+    label.label--block{
         display: block;
     }
 
