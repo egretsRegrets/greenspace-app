@@ -76,7 +76,8 @@ const greenspaceSchema = new mongoose.Schema({
             type: String,
             required: true
         }
-    }
+    },
+    photos: [String]
 });
 
 // create our indexes:
@@ -101,5 +102,7 @@ greenspaceSchema.pre('save', async function(next){
     }
     next();
 });
+
+// photo transformation
 
 module.exports = mongoose.model('Greenspace', greenspaceSchema);

@@ -49,6 +49,11 @@
     <input type="text" name="address" id="greenspaceAddressLng">
   </div>
 
+  <div class="textfield ">
+    <label for="photos" for="photos" class="label--block">Greenspace photo</label>
+    <input type="text" name="photos" (blur)="addPhoto($event)">
+  </div>
+  <!--post form inputs-->
   <div class="form__tooltip form__tooltip__submission"
     [ngClass]="{'form__tooltip--active': formSubmission.attempted, 'form__tooltip__submission--success': formSubmission.success, 'form__tooltip__submission--failed': formSubmission.failed }"
   >

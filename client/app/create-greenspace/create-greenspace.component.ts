@@ -41,6 +41,7 @@ export class CreateGreenspaceComponent {
 
   ngOnInit() {
     this.form.tags = [];
+    this.form.photos = [];
 
     // we need to load the greenspaces so that we can compare
       // new greenspace details against existing greenspaces
@@ -130,6 +131,11 @@ export class CreateGreenspaceComponent {
     }, 700);
   }
   
+  addPhoto(event) {
+    // just a test returning string
+    this.form.photos.push(event.target.value);
+  }
+
   saveGreenspace(greenspace: Greenspace) {
     if(!this.checkFormErrors()){
       this.greenspacesService.createGreenspaces(greenspace);

@@ -5,4 +5,6 @@ export interface Greenspace {
     description: string;
     tags: string[];
     location: {};
+    photos: string[];
+    landownerParticipation: string[];
 }
