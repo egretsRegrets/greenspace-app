@@ -77,7 +77,11 @@ const greenspaceSchema = new mongoose.Schema({
             required: true
         }
     },
-    photos: [String]
+    photos: [String],
+    landownerParticipation: {
+        type: String,
+        required: true
+    }
 });
 
 // create our indexes:

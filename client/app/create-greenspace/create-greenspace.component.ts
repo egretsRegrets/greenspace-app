@@ -32,6 +32,7 @@ export class CreateGreenspaceComponent {
   };
 
   greenspaceTags = ['backyard', 'front yard', 'full yard', 'large plot', 'micro plot'];
+  participationLevels = ['hands-off', 'helping hand', 'co-farmer'];
 
   map: any;
 

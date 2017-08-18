@@ -53,6 +53,14 @@
     <label for="photos" for="photos" class="label--block">Greenspace photo</label>
     <input type="text" name="photos" (blur)="addPhoto($event)">
   </div>
+
+  <div class="radio__container">
+    <label class="label--block">How involved do you want to be in farming your Greenspace</label>
+    <label *ngFor="let level of participationLevels">
+      {{level}}
+      <input type="radio" name="participation" value="{{level}}" [(ngModel)]="form.landownerParticipation">
+    </label>
+  </div>
   <!--post form inputs-->
   <div class="form__tooltip form__tooltip__submission"
     [ngClass]="{'form__tooltip--active': formSubmission.attempted, 'form__tooltip__submission--success': formSubmission.success, 'form__tooltip__submission--failed': formSubmission.failed }"
